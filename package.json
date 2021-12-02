@@ -2,8 +2,9 @@
   "name": "advent-of-code-2021",
   "version": "1.0.0",
   "description": "Advent of Code 2021 solutions",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/vaughandroid/advent-of-code-2021#readme",
   "devDependencies": {
+    "chai": "^4.3.4",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
