@@ -1,6 +1,6 @@
 const { assert } = require('chai');
 const { describe } = require('mocha');
-const { countDepthIncreases, readDepthReadingsFromFile } = require('../src/day01/sonar-sweep');
+const { countDepthIncreases, countDepthIncreasesWithSlidingWindow, readDepthReadingsFromFile } = require('../src/day01/sonar-sweep');
 
 const testReadings = [
   199,
@@ -26,5 +26,12 @@ describe('countDepthIncreases', () => {
   it('Counts the number of times a depth measurement increases', () => {
     const result = countDepthIncreases(testReadings);
     assert.equal(result, 7);
+  });
+});
+
+describe('countDepthIncreasesWithSlidingWindow', () => {
+  it('Counts the number of times a depth measurement increases', () => {
+    const result = countDepthIncreasesWithSlidingWindow(testReadings);
+    assert.equal(result, 5);
   });
 });
