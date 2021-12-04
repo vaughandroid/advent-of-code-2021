@@ -1,13 +1,6 @@
 /* eslint-disable no-console */
-const {
-  countDepthIncreases,
-  readDepthReadingsFromFile,
-  countDepthIncreasesWithSlidingWindow
-} = require('./day01/sonar-sweep');
+const { runDay01 } = require('./day01');
+const { runDay02 } = require('./day02');
 
-const depthReadings = readDepthReadingsFromFile(`${__dirname}/day01/data/readings.txt`);
-
-// Day 1, part 1.
-console.log(`Day 1, part 1: ${countDepthIncreases(depthReadings)}`);
-// Day 1, part 2.
-console.log(`Day 1, part 2: ${(countDepthIncreasesWithSlidingWindow(depthReadings))}`);
+runDay01();
+runDay02();

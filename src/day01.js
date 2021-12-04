@@ -1,8 +1,7 @@
-const fs = require('fs');
+const { readStringsFromFile } = require('./utils');
 
 function readDepthReadingsFromFile(path) {
-  return fs.readFileSync(path).toString().split('\n')
-    .filter((reading) => reading !== '')
+  return readStringsFromFile(path)
     .map((reading) => +reading);
 }
 
@@ -39,8 +38,15 @@ function countDepthIncreasesWithSlidingWindow(depthReadings) {
   return increases;
 }
 
+function runDay01() {
+  const depthReadings = readDepthReadingsFromFile(`${__dirname}/input/day01.txt`);
+  console.log(`Day 1, part 1: ${countDepthIncreases(depthReadings)}`);
+  console.log(`Day 1, part 2: ${(countDepthIncreasesWithSlidingWindow(depthReadings))}`);
+}
+
 module.exports = {
   readDepthReadingsFromFile,
   countDepthIncreases,
   countDepthIncreasesWithSlidingWindow,
+  runDay01,
 };
