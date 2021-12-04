@@ -1,8 +1,9 @@
 const { assert } = require('chai');
 const { describe } = require('mocha');
-const { countDepthIncreases, countDepthIncreasesWithSlidingWindow, readDepthReadingsFromFile } = require('../src/day01');
+const { readNumbersFromFile } = require('../src/utils');
+const { countDepthIncreases, countDepthIncreasesWithSlidingWindow } = require('../src/day01');
 
-const testReadings = readDepthReadingsFromFile(`${__dirname}/fixtures/testReadings.txt`);
+const testReadings = readNumbersFromFile(`${__dirname}/input/day01.txt`);
 
 describe('countDepthIncreases', () => {
   it('Counts the number of times a depth measurement increases', () => {

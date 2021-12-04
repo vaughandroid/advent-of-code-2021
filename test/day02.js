@@ -3,7 +3,7 @@ const { describe } = require('mocha');
 const { readStringsFromFile } = require('../src/utils');
 const { followCourse, followCourseV2 } = require('../src/day02');
 
-const testCommands = readStringsFromFile(`${__dirname}/fixtures/testCommands.txt`);
+const testCommands = readStringsFromFile(`${__dirname}/input/day02.txt`);
 
 describe('followCourse', () => {
   it('Follows the directions and returns the ending position', () => {
