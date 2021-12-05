@@ -42,6 +42,6 @@ describe('calculateLifeSupportRating', () => {
   });
 
   it('Calculates the life support rating', () => {
-    assert.equal(result.oxygenRating, 230);
+    assert.equal(result.lifeSupportRating, 230);
   });
 });
