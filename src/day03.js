@@ -1,24 +1,25 @@
 /* eslint-disable no-bitwise */
 const { readBinaryNumbersFromFile } = require('./utils');
 
-function calculateGammaFromReadings(bits, readings) {
-  const counts = new Array(bits).fill(0);
+function countSetBits(bits, readings) {
+  const setBitCounts = new Array(bits).fill(0);
   readings.forEach((reading) => {
     for (let i = 0; i < bits; i += 1) {
-      counts[i] += (reading >> i) & 1;
+      setBitCounts[i] += (reading >> i) & 1;
     }
   });
+  return setBitCounts;
+}
 
+function calculateGammaFromReadings(bits, readings) {
+  const setBitCounts = countSetBits(bits, readings);
   const threshold = readings.length / 2;
 
   let result = 0;
-  counts
-    .reverse()
-    .forEach((count) => {
-      const bit = (count > threshold) ? 1 : 0;
-      result = (result << 1) + bit;
-    });
-
+  for (let i = 0; i < bits; i += 1) {
+    const bit = (setBitCounts[i] > threshold) ? 1 : 0;
+    result |= (bit << i);
+  }
   return result;
 }
 
